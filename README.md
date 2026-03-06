@@ -1,47 +1,57 @@
-# Human Behavior Sentiment Analysis
+#Fake News Detection using Machine Learning
 
-## Overview
-This project analyzes human behavior on social media related to cyber crimes using sentiment analysis.
+##Overview
+This project detects whether a news article is Real or Fake using Natural Language Processing (NLP) and machine learning.
+The system processes news text, extracts features using TF-IDF, and classifies the article using a trained model.
 
-## Technologies Used
-- Python
-- Pandas
-- NLTK
-- VaderSentiment
-- Streamlit
-- Matplotlib
-- Seaborn
+The project also includes a Streamlit web application where users can enter news content and instantly see the prediction.
 
-## Project Workflow
+##Technologies Used
+-Python
+-Pandas
+-Scikit-learn
+-NLTK
+-TF-IDF Vectorizer
+-Joblib
+-Streamlit
 
-1. Data Collection
-2. Data Preprocessing
-3. Crime Type Classification
-4. Sentiment Analysis
-5. Data Visualization
-6. Interactive Dashboard
+##Project Workflow
+1.Data Collection
+2.Data Preprocessing
+3.Feature Extraction (TF-IDF)
+4.Model Training
+5.Model Evaluation
+6.Fake News Prediction using Streamlit Dashboard
 
-## Dataset
-Twitter Cyber Crime Dataset (Kaggle)
+##Dataset
+Fake News Dataset (Kaggle)
 
-## How to Run
+Dataset contains:
+text → news article content
+label → real or fake news
 
-Install dependencies
-
+##How to Run
+Install dependencies:
 pip install -r requirements.txt
 
-Run preprocessing
+Run data collection / preprocessing:
+python src/collect_data.py
 
-python src/preprocess.py
+Train the machine learning model:
+python src/train_model.py
 
-Run crime classification
-
-python src/crime_mapper.py
-
-Run sentiment analysis
-
-python src/sentiment_model.py
-
-Run dashboard
-
+Run the Streamlit dashboard:
 streamlit run app.py
+
+##Features
+Fake vs Real news prediction
+Text preprocessing pipeline
+TF-IDF feature extraction
+Machine learning classification
+Interactive Streamlit dashboard
+
+##Future Improvements
+Add deep learning models (LSTM / BERT)
+Real-time news scraping
+Deploy the model online
+Improve dataset size and accuracy

@@ -1,57 +1,100 @@
-#Fake News Detection using Machine Learning
+# 📰 Fake News Detection using Machine Learning
 
-##Overview
-This project detects whether a news article is Real or Fake using Natural Language Processing (NLP) and machine learning.
-The system processes news text, extracts features using TF-IDF, and classifies the article using a trained model.
+## 📌 Project Overview
+The **Fake News Detection System** identifies whether a news article is **Real or Fake** using **Natural Language Processing (NLP)** and **Machine Learning** techniques.
 
-The project also includes a Streamlit web application where users can enter news content and instantly see the prediction.
+The system processes news text, extracts features using **TF-IDF**, and classifies the article using a trained machine learning model.
 
-##Technologies Used
--Python
--Pandas
--Scikit-learn
--NLTK
--TF-IDF Vectorizer
--Joblib
--Streamlit
+This project also includes an **interactive Streamlit web application** where users can input news content and instantly receive a prediction.
 
-##Project Workflow
-1.Data Collection
-2.Data Preprocessing
-3.Feature Extraction (TF-IDF)
-4.Model Training
-5.Model Evaluation
-6.Fake News Prediction using Streamlit Dashboard
+---
 
-##Dataset
-Fake News Dataset (Kaggle)
+## 🚀 Features
+
+- Detects **Fake vs Real news articles**
+- **Text preprocessing pipeline** for cleaning news content
+- **TF-IDF feature extraction** for text representation
+- Machine Learning based **classification model**
+- **Interactive Streamlit dashboard**
+- Simple interface for quick news prediction
+
+---
+
+## 🛠 Technologies Used
+
+- **Python**
+- **Pandas**
+- **Scikit-learn**
+- **NLTK**
+- **TF-IDF Vectorizer**
+- **Joblib**
+- **Streamlit**
+
+---
+
+## ⚙️ Project Workflow
+
+1. **Data Collection**
+2. **Data Preprocessing**
+3. **Feature Extraction (TF-IDF)**
+4. **Model Training**
+5. **Model Evaluation**
+6. **Fake News Prediction via Streamlit Dashboard**
+
+---
+
+## 📊 Dataset
+
+**Fake News Dataset (Kaggle)**
 
 Dataset contains:
-text → news article content
-label → real or fake news
 
-##How to Run
-Install dependencies:
+- **text** → News article content  
+- **label** → Real or Fake news
+
+---
+## ▶️ How to Run the Project
+
+### 1️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-Run data collection / preprocessing:
+### 2️⃣ Run Data Collection / Preprocessing
+```bash
 python src/collect_data.py
+```
 
-Train the machine learning model:
+### 3️⃣ Train the Machine Learning Model
+```bash
 python src/train_model.py
+```
 
-Run the Streamlit dashboard:
+### 4️⃣ Run the Streamlit Dashboard
+```bash
 streamlit run app.py
+```
 
-##Features
-Fake vs Real news prediction
-Text preprocessing pipeline
-TF-IDF feature extraction
-Machine learning classification
-Interactive Streamlit dashboard
+---
+## 💡 Future Improvements
 
-##Future Improvements
-Add deep learning models (LSTM / BERT)
-Real-time news scraping
-Deploy the model online
-Improve dataset size and accuracy
+- Implement **Deep Learning models (LSTM / BERT)**
+- Add **Real-time news scraping**
+- **Deploy the model online**
+- Improve **dataset size and accuracy**
+
+---
+
+## 📷 Application Interface
+
+Streamlit dashboard allows users to:
+
+- Enter news article text
+- Analyze the content
+- Instantly get prediction (**Real / Fake News**)
+
+---
+
+## 📄 License
+
+This project is open-source and available for learning and research purposes.

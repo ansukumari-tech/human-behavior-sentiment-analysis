@@ -53,6 +53,7 @@ Dataset contains:
 - **label** → Real or Fake news
 
 ---
+
 ## ▶️ How to Run the Project
 
 ### 1️⃣ Install Dependencies
@@ -76,6 +77,7 @@ streamlit run app.py
 ```
 
 ---
+
 ## 💡 Future Improvements
 
 - Implement **Deep Learning models (LSTM / BERT)**

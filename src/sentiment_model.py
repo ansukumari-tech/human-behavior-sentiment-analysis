@@ -9,17 +9,23 @@ def get_sentiment(text):
 
     score = analyzer.polarity_scores(str(text))
 
-    if score["compound"] >= 0.05:
-        return "Positive"
+    compound = score["compound"]
 
-    elif score["compound"] <= -0.05:
-        return "Negative"
-
+    if compound >= 0.05:
+        sentiment = "Positive"
+    elif compound <= -0.05:
+        sentiment = "Negative"
     else:
-        return "Neutral"
+        sentiment = "Neutral"
 
-df["sentiment"] = df["clean_text"].apply(get_sentiment)
+    return sentiment, compound
 
+# Apply function
+df[["sentiment","sentiment_score"]] = df["clean_text"].apply(
+    lambda x: pd.Series(get_sentiment(x))
+)
+
+# Save final dataset
 df.to_csv("data/final_data.csv", index=False)
 
 print("Sentiment analysis completed")

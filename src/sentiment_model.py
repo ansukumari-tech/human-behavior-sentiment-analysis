@@ -7,8 +7,10 @@ analyzer = SentimentIntensityAnalyzer()
 
 def get_sentiment(text):
 
-    score = analyzer.polarity_scores(str(text))
+    if pd.isna(text):
+        return "Neutral", 0
 
+    score = analyzer.polarity_scores(str(text))
     compound = score["compound"]
 
     if compound >= 0.05:
@@ -20,7 +22,7 @@ def get_sentiment(text):
 
     return sentiment, compound
 
-# Apply function
+# Apply sentiment analysis
 df[["sentiment","sentiment_score"]] = df["clean_text"].apply(
     lambda x: pd.Series(get_sentiment(x))
 )
@@ -29,3 +31,4 @@ df[["sentiment","sentiment_score"]] = df["clean_text"].apply(
 df.to_csv("data/final_data.csv", index=False)
 
 print("Sentiment analysis completed")
+print(df.head())

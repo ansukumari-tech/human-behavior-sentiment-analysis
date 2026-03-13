@@ -40,4 +40,13 @@ plt.figure(figsize=(8,5))
 sns.histplot(df["sentiment_score"], bins=20, kde=True)
 
 plt.title("Sentiment Score Distribution")
+plt.show() 
+
+# ---------------- Emotion Visualization ----------------
+
+plt.figure(figsize=(8,5))
+sns.countplot(data=df, x="emotion", order=df["emotion"].value_counts().index)
+
+plt.title("Emotion Distribution")
+plt.xticks(rotation=45)
 plt.show()

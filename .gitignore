@@ -1,16 +1,33 @@
-# Virtual environment
-venv/
-
 # Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Jupyter files
+# Virtual environment
+venv/
+env/
+
+# Streamlit
+.streamlit/
+
+# Jupyter
 .ipynb_checkpoints/
-
-# Environment files
-.env
 
 # OS files
 .DS_Store
 Thumbs.db
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Build files
+build/
+dist/
+
+# Generated datasets
+data/cleaned_data.csv
+data/final_data.csv

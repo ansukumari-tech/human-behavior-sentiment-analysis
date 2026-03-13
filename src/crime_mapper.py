@@ -18,12 +18,24 @@ def crime_category(text):
 
     elif "trafficking" in text:
         return "Human Trafficking"
+    
+    elif "hacking" in text:
+        return "Hacking"
+    
+    elif "fraud" in text:
+        return "Fraud"
+    
+    elif "drug" in text:
+        return "Drug Related"
+    
+    elif "terror" in text:
+        return "Terrorism"
 
     else:
         return "Other"
 
 # Apply crime classification
-df["crime_type"] = df["clean_text"].apply(crime_category)
+df["crime_type"] = df["tweet"].apply(crime_category)
 
 # -------- ADD CITY COLUMN --------
 cities = ["Delhi","Mumbai","Kolkata","Chennai","Bangalore","Hyderabad"]

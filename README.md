@@ -1,195 +1,148 @@
-# Human Behavior Sentiment Analysis using NLP
+# 🧠 Human Behavior Sentiment Analysis using NLP
 
-## Project Overview
+## 📌 Project Overview
 
-This project analyzes **human behavior and crime-related discussions on social media** using **Natural Language Processing (NLP)** and **Sentiment Analysis**.
+The **Human Behavior Sentiment Analysis System** analyzes social media tweets to understand public sentiment and behavioral patterns related to crime discussions.
 
-The system processes tweet data, cleans the text, identifies crime-related keywords, and evaluates the **public sentiment** expressed in tweets.
+The system processes tweet data, performs **text preprocessing**, detects **crime-related categories**, and applies sentiment analysis to classify tweets as **Positive, Negative, or Neutral**.
 
-The results are visualized through charts and an **interactive Streamlit dashboard**, allowing users to explore crime trends and sentiment patterns.
-
-This project demonstrates a complete **end-to-end data science pipeline** including:
-
-* Data preprocessing
-* Crime classification
-* Sentiment analysis
-* Data visualization
-* Interactive dashboard deployment
+The project also includes an **interactive Streamlit web application** where users can explore insights, visualize crime-related sentiment trends, and analyze new tweets in real time.
 
 ---
 
-# Project Architecture
+## 🚀 Features
 
-```
-Tweet Dataset
-      ↓
+* Analyze public sentiment from tweet text
+* Text preprocessing pipeline for cleaning tweet data
+* Crime category detection (Phishing, Scam, Cyber Crime, Human Trafficking, etc.)
+* Sentiment classification using VADER Sentiment Analyzer
+* Interactive Streamlit dashboard for visualization
+* Crime distribution analysis by city
+* Sentiment distribution and heatmap visualization
+* Tweet word cloud for keyword analysis
+* Map visualization for crime sentiment locations
+* Sentiment prediction tool for new tweets
+* Download processed dataset directly from the dashboard
+
+---
+
+## 🛠 Technologies Used
+
+* Python
+* Pandas
+* NumPy
+* NLTK
+* VADER Sentiment Analyzer
+* Matplotlib
+* Seaborn
+* Streamlit
+* WordCloud
+* Scikit-learn
+* Joblib
+
+---
+
+## ⚙️ Project Workflow
+
 Data Collection
-      ↓
-Text Preprocessing
-      ↓
-Crime Classification
-      ↓
-Sentiment Analysis
-      ↓
-Data Visualization
-      ↓
-Interactive Streamlit Dashboard
-```
+Data Preprocessing (Text Cleaning & Stopword Removal)
+Crime Category Classification
+Sentiment Analysis using VADER
+Data Visualization & Insights
+Interactive Dashboard using Streamlit
 
 ---
 
-# Features
+## 📊 Dataset
 
-• Tweet text preprocessing using NLP techniques
-• Crime type classification from tweet content
-• Sentiment analysis using **VADER Sentiment**
-• Visualization of crime trends and public reactions
-• Interactive **Streamlit dashboard**
-• Real-time sentiment prediction for new tweets
+Tweet Dataset (CSV Format)
 
----
+Dataset contains the following important columns:
 
-# Technologies Used
-
-| Category                    | Tools               |
-| --------------------------- | ------------------- |
-| Programming Language        | Python              |
-| Data Processing             | Pandas, NumPy       |
-| Natural Language Processing | NLTK                |
-| Sentiment Analysis          | VADER Sentiment     |
-| Visualization               | Matplotlib, Seaborn |
-| Dashboard                   | Streamlit           |
-| Machine Learning Utilities  | Scikit-Learn        |
+* **tweet** → Original tweet text
+* **clean_text** → Preprocessed tweet text
+* **crime_type** → Detected crime category
+* **city** → Simulated city location
+* **latitude / longitude** → Coordinates used for map visualization
+* **sentiment** → Predicted sentiment label
+* **sentiment_score** → VADER compound sentiment score
 
 ---
 
-# Project Structure
+## ▶️ How to Run the Project
 
-```
-human-behavior-sentiment-analysis
-│
-├── data
-│   ├── tweets.csv
-│   ├── cleaned_data.csv
-│   └── final_data.csv
-│
-├── src
-│   ├── collect_data.py
-│   ├── preprocess.py
-│   ├── crime_mapper.py
-│   ├── sentiment_model.py
-│   └── visualization.py
-│
-├── images
-│   ├── dashboard.png
-│   ├── heatmap.png
-│   └── architecture.png
-│
-├── app.py
-├── requirements.txt
-├── README.md
-└── .gitignore
-```
-
----
-
-# Dashboard Features
-
-### Sentiment Distribution
-
-Displays the distribution of tweets into **Positive, Negative, and Neutral sentiment**.
-
-### Crime Type Analysis
-
-Shows frequency of crime categories such as:
-
-* Phishing
-* Scam
-* Cyber Crime
-* Human Trafficking
-
-### City-Based Crime Distribution
-
-Visualizes crime-related tweets across different cities.
-
-### Crime Heatmap
-
-Displays geographic distribution of tweets using **latitude and longitude mapping**.
-
-### Real-Time Sentiment Predictor
-
-Users can input new tweet text and instantly get sentiment prediction.
-
----
-
-# Dataset
-
-The dataset contains tweet information including:
-
-* tweet text
-* username
-* location
-* follower count
-* timestamp
-
-The dataset is preprocessed and transformed into structured data for analysis.
-
----
-
-# How to Run the Project
-
-### 1. Clone the repository
-
-```
-git clone https://github.com/your-username/human-behavior-sentiment-analysis.git
-```
-
-### 2. Install dependencies
+### 1️⃣ Install Dependencies
 
 ```
 pip install -r requirements.txt
 ```
 
-### 3. Run preprocessing pipeline
+### 2️⃣ Run Data Preparation
 
 ```
-python src/collect_data.py
-python src/preprocess.py
-python src/crime_mapper.py
-python src/sentiment_model.py
+python collect_data.py
 ```
 
-### 4. Run the Streamlit dashboard
+### 3️⃣ Run Text Preprocessing
+
+```
+python preprocess.py
+```
+
+### 4️⃣ Run Crime Classification
+
+```
+python crime_mapper.py
+```
+
+### 5️⃣ Run Sentiment Analysis
+
+```
+python sentiment_model.py
+```
+
+### 6️⃣ Launch the Streamlit Dashboard
 
 ```
 streamlit run app.py
 ```
 
----
-
-# Example Dashboard
-
-(Add screenshots here)
-
-```
-images/dashboard.png
-images/heatmap.png
-```
+The application will open in your browser.
 
 ---
 
-# Future Improvements
+## 📷 Application Interface
 
-• Add machine learning based sentiment classification
-• Integrate real-time Twitter API data
-• Improve geographic crime mapping
-• Deploy the application as a live web service
+The Streamlit dashboard allows users to:
+
+* View dataset statistics and metrics
+* Analyze sentiment distribution
+* Explore crime vs sentiment relationships
+* Visualize crime distribution by city
+* View tweet keyword word cloud
+* Explore tweet locations on a map
+* Enter a new tweet and predict its sentiment
 
 ---
 
-# Author
+## 💡 Future Improvements
 
-Ansh Kumari
-B.Tech CSE (Data Science)
+* Implement Deep Learning models (LSTM / BERT)
+* Integrate real-time tweet collection using Twitter API
+* Improve crime classification using machine learning models
+* Add advanced geospatial crime heatmap visualizations
+* Deploy the application to cloud platforms
 
-This project was developed to demonstrate skills in **Natural Language Processing, Data Analysis, and Dashboard Development**.
+---
+
+## 👩‍💻 Author
+
+**Ansu Kumari**
+B.Tech – Computer Science & Engineering
+Brainware University
+
+---
+
+## 📄 License
+
+This project is open-source and intended for **educational and research purposes**.

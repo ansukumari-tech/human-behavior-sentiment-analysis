@@ -6,7 +6,11 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 st.set_page_config(page_title="Human Behavior Sentiment Analysis", layout="wide")
 
 # Load dataset
-df = pd.read_csv("data/final_data.csv")
+@st.cache_data
+def load_data():
+    return pd.read_csv("data/final_data.csv")
+
+df = load_data()
 
 # Sidebar
 st.sidebar.title("Navigation")
@@ -26,9 +30,9 @@ if option == "Dashboard":
     col1, col2, col3 = st.columns(3)
 
     col1.metric("Total Tweets", len(df))
-    col2.metric("Crime Types", df["crime_type"].nunique())
-    col3.metric("Sentiment Types", df["sentiment"].nunique())
-
+    col2.metric("Positive Tweets", len(df[df["sentiment"]=="Positive"]))
+    col3.metric("Negative Tweets", len(df[df["sentiment"]=="Negative"]))
+    
     # Sentiment distribution
     st.subheader("Sentiment Distribution")
 
@@ -71,8 +75,8 @@ if option == "Dashboard":
 
 elif option == "Dataset":
 
-    st.subheader("Dataset Preview")
-    st.dataframe(df)
+    st.subheader("Dataset Statistics")
+    st.write(df.describe())
 
 # ---------------- SENTIMENT PREDICTOR ----------------
 
@@ -97,3 +101,35 @@ elif option == "Sentiment Predictor":
 
         st.success(f"Predicted Sentiment: {sentiment}")
         st.write("Sentiment Score:", score)
+
+# ---------------- WORD CLOUD ----------------
+
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+st.subheader("Tweet Word Cloud")
+
+text = " ".join(df["clean_text"].dropna())
+
+wc = WordCloud(width=800, height=400, background_color="white").generate(text)
+
+fig, ax = plt.subplots()
+ax.imshow(wc)
+ax.axis("off")
+
+st.pyplot(fig)
+
+# ---------------- DOWNLOAD DATASET BUTTON ----------------
+
+st.download_button(
+    "Download Dataset",
+    df.to_csv(index=False),
+    "crime_sentiment_data.csv"
+)
+
+# ---------------- Emotion ----------------
+
+st.subheader("Emotion Distribution")
+
+emotion_counts = df["emotion"].value_counts()
+st.bar_chart(emotion_counts)

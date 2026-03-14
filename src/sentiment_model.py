@@ -31,4 +31,3 @@ df[["sentiment","sentiment_score"]] = df["clean_text"].apply(
 df.to_csv("data/final_data.csv", index=False)
 
 print("Sentiment analysis completed")
-print(df.head())

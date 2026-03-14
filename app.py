@@ -27,11 +27,12 @@ if option == "Dashboard":
 
     st.subheader("Dataset Overview")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
     col1.metric("Total Tweets", len(df))
     col2.metric("Positive Tweets", len(df[df["sentiment"]=="Positive"]))
     col3.metric("Negative Tweets", len(df[df["sentiment"]=="Negative"]))
+    col4.metric("Neutral Tweets", len(df[df["sentiment"]=="Neutral"]))
     
     # Sentiment distribution
     st.subheader("Sentiment Distribution")
@@ -107,17 +108,17 @@ elif option == "Sentiment Predictor":
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-st.subheader("Tweet Word Cloud")
-
-text = " ".join(df["clean_text"].dropna())
-
-wc = WordCloud(width=800, height=400, background_color="white").generate(text)
-
-fig, ax = plt.subplots()
-ax.imshow(wc)
-ax.axis("off")
-
-st.pyplot(fig)
+if option == "Dashboard":
+    
+    st.subheader("Tweet Word Cloud")
+    text = " ".join(df["clean_text"].dropna())
+    wc = WordCloud(width=800, height=400, background_color="white").generate(text)
+    
+    fig, ax = plt.subplots()
+    ax.imshow(wc)
+    ax.axis("off")
+    
+    st.pyplot(fig)
 
 # ---------------- DOWNLOAD DATASET BUTTON ----------------
 
@@ -133,3 +134,10 @@ st.subheader("Emotion Distribution")
 
 emotion_counts = df["emotion"].value_counts()
 st.bar_chart(emotion_counts)
+
+# ---------------- Emotion Filter ----------------
+
+emotion_filter = st.selectbox(
+    "Filter by Emotion",
+    ["All"] + list(df["emotion"].unique())
+)

@@ -5,13 +5,14 @@ df = pd.read_csv("data/final_data.csv")
 
 def detect_emotion(text):
 
-    polarity = TextBlob(str(text)).sentiment.polarity
+    blob = TextBlob(str(text))
+    polarity = blob.sentiment.polarity
 
-    if polarity > 0.3:
+    if polarity > 0.4:
         return "joy"
     elif polarity > 0:
         return "trust"
-    elif polarity < -0.3:
+    elif polarity < -0.4:
         return "anger"
     elif polarity < 0:
         return "sadness"

@@ -10,6 +10,7 @@ plt.figure(figsize=(6,6))
 df["sentiment"].value_counts().plot.pie(autopct="%1.1f%%")
 plt.title("Overall Sentiment Distribution")
 plt.ylabel("")
+plt.tight_layout()
 plt.show()
 
 
@@ -21,6 +22,7 @@ crime_sentiment = pd.crosstab(df["crime_type"], df["sentiment"])
 sns.heatmap(crime_sentiment, annot=True, cmap="coolwarm")
 
 plt.title("Crime Type vs Sentiment Heatmap")
+plt.tight_layout()
 plt.show()
 
 
@@ -31,6 +33,7 @@ sns.countplot(data=df, x="crime_type", order=df["crime_type"].value_counts().ind
 
 plt.title("Crime Type Frequency")
 plt.xticks(rotation=45)
+plt.tight_layout()
 plt.show()
 
 
@@ -40,6 +43,7 @@ plt.figure(figsize=(8,5))
 sns.histplot(df["sentiment_score"], bins=20, kde=True)
 
 plt.title("Sentiment Score Distribution")
+plt.tight_layout()
 plt.show() 
 
 # ---------------- Emotion Visualization ----------------
@@ -49,4 +53,5 @@ sns.countplot(data=df, x="emotion", order=df["emotion"].value_counts().index)
 
 plt.title("Emotion Distribution")
 plt.xticks(rotation=45)
+plt.tight_layout()
 plt.show()
